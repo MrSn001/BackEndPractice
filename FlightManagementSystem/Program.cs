@@ -1,6 +1,7 @@
 ﻿using FlightManagementSystem.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 
 
 namespace FlightManagementSystem
@@ -12,11 +13,15 @@ namespace FlightManagementSystem
         public static int choice;
         public static bool validationFlag = true;
         public static EmailAddressAttribute attribute = new EmailAddressAttribute();
+        
+       
+
 
 
         //Passenger variables
         public static string passengerName;
         public static string passengerEmail;
+        public static string passengerPhoneNumber;
 
         public static FlightManagementSystemContext context = new FlightManagementSystemContext
         {
@@ -77,6 +82,7 @@ namespace FlightManagementSystem
                 return;
             }
         }
+       
 
 
         //Register Passenger Method
@@ -100,6 +106,18 @@ namespace FlightManagementSystem
                 return;
             }
         }
+        public static string PhoneNumberFormatCheck(string phoneNumber)
+        {
+            if (!Regex.IsMatch(phoneNumber, @"^[79]\d{7}$"))
+            {
+                Console.ForegroundColor = ConsoleColor.Red; 
+                Console.WriteLine("The Phone Number should be 8 digits and it have to start with 7 or 9!!");
+                Console.ResetColor();
+                validationFlag = false;
+                return null;
+            }
+            return phoneNumber;
+        }
         public static void PassengerRegister()
         {
             validationFlag = true;
@@ -111,7 +129,7 @@ namespace FlightManagementSystem
             if (!validationFlag) { return; }
            
             //Enter Passenger Email
-            Console.WriteLine("Enter the Passenger Email: ");
+            Console.Write("Enter the Passenger Email: ");
             ErrorCatch(ref passengerEmail);
             if (!validationFlag) { return; }
             CheckIsUnique(passengerEmail);
@@ -124,7 +142,22 @@ namespace FlightManagementSystem
             }
             passengerEmail = EmailFormatCheck(passengerEmail);
             if (!validationFlag) { return; }
-            
+
+
+            //Enter Passenger Phone Number
+            Console.Write("Enter the Passenger Phone Number: ");
+            ErrorCatch (ref passengerPhoneNumber);
+            if (!validationFlag) { return; }
+            CheckIsUnique(passengerPhoneNumber);
+            if (!validationFlag)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("This phone number is already Registered!!");
+                Console.ResetColor();
+                return;
+            }
+            passengerPhoneNumber = PhoneNumberFormatCheck(passengerPhoneNumber);
+            if (!validationFlag) { return; }
         }
 
         static void Main(string[] args)
