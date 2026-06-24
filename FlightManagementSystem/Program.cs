@@ -66,7 +66,7 @@ namespace FlightManagementSystem
         }
         public static string ReadName(string name)
         {
-            if(name == null)
+            if(string.IsNullOrEmpty(name))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("The Field Can't be Empty!!");
@@ -257,17 +257,31 @@ namespace FlightManagementSystem
         {
             validationFlag = true;
             //Aircraft model name
-            Console.WriteLine("Enter Aircraft Model Name: ");
+            Console.Write("Enter Aircraft Model Name: ");
             ErrorCatch(ref aircraftModel);
             if (!validationFlag) { return; }
             aircraftModel = ReadName(aircraftModel);
             if (!validationFlag) { return; }
 
             //Aircraft total Seats
-            Console.WriteLine("Enter Number of aircraft seat");
+            Console.Write("Enter Number of aircraft seat: ");
             ErrorCatch(ref totalSeats);
             if(!validationFlag) { return; }
             totalSeats = CheckIfZero(totalSeats);
+
+            aircraftId = GenerateAircraftId();
+
+            context.Aircrafts.Add(
+                new Aircraft
+                {
+                    aircraftId = aircraftId,
+                    model = aircraftModel,
+                    totalSeats = totalSeats,
+                    isOperational = true
+                });
+
+           
+
         }
             
             
@@ -292,6 +306,7 @@ namespace FlightManagementSystem
                         break;
                     //Add an Aircraft
                     case 2:
+                        AddAircraft();
                         break;
                     //Register a Pilot
                     case 3:
