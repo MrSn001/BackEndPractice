@@ -79,7 +79,19 @@ namespace FlightManagementSystem
         }
 
 
-        
+        //Register Passenger Method
+        public static string EmailFormatCheck(string email)
+        {
+            if (!attribute.IsValid(email))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Invalid email format!");
+                Console.ResetColor();
+                validationFlag |= false;
+                return null;
+            }
+            return email;
+        }
         public static void PassengerRegister()
         {
             //Enter Passenger Name
@@ -89,7 +101,12 @@ namespace FlightManagementSystem
             passengerName = ReadName(passengerName);
             if (!validationFlag) { return; }
            
-           
+            //Enter Passenger Email
+            Console.WriteLine("Enter the Passenger Email: ");
+            ErrorCatch(ref passengerEmail);
+            if (!validationFlag) { return; }
+            passengerEmail = EmailFormatCheck(passengerEmail);
+            if (!validationFlag) { return; }
             
         }
 
