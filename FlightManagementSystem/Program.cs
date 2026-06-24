@@ -261,6 +261,7 @@ namespace FlightManagementSystem
             ErrorCatch(ref aircraftModel);
             if (!validationFlag) { return; }
             aircraftModel = ReadName(aircraftModel);
+            if (!validationFlag) { return; }
 
             //Aircraft total Seats
             Console.WriteLine("Enter Number of aircraft seat");
