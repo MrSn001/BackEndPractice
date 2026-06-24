@@ -92,8 +92,17 @@ namespace FlightManagementSystem
             }
             return email;
         }
+        public static void CheckIsUnique(string value)
+        {
+            if(context.Passengers.Any(p => p.passengerEmail == value))
+            {
+                validationFlag = false;
+                return;
+            }
+        }
         public static void PassengerRegister()
         {
+            validationFlag = true;
             //Enter Passenger Name
             Console.Write("Enter the Passenger Name: ");
             ErrorCatch(ref passengerName);
@@ -105,6 +114,14 @@ namespace FlightManagementSystem
             Console.WriteLine("Enter the Passenger Email: ");
             ErrorCatch(ref passengerEmail);
             if (!validationFlag) { return; }
+            CheckIsUnique(passengerEmail);
+            if (!validationFlag)
+            {
+                Console.ForegroundColor= ConsoleColor.Red;
+                Console.WriteLine("This email is already Registered!!");
+                Console.ResetColor();
+                return;
+            }
             passengerEmail = EmailFormatCheck(passengerEmail);
             if (!validationFlag) { return; }
             
