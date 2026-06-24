@@ -155,7 +155,7 @@ namespace FlightManagementSystem
         {
             if(context.Passengers.Count == 0)
             {
-                int id2 = 0;
+                int id2 = 1;
                 return id2;
             }
         int id = context.Passengers.Max(p =>p.passengerId) + 1;
