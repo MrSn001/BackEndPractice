@@ -22,6 +22,7 @@ namespace FlightManagementSystem
         public static string passengerName;
         public static string passengerEmail;
         public static string passengerPhoneNumber;
+        public static string passengerPassportNumber;
 
         public static FlightManagementSystemContext context = new FlightManagementSystemContext
         {
@@ -143,7 +144,7 @@ namespace FlightManagementSystem
             passengerEmail = EmailFormatCheck(passengerEmail);
             if (!validationFlag) { return; }
 
-
+          
             //Enter Passenger Phone Number
             Console.Write("Enter the Passenger Phone Number: ");
             ErrorCatch (ref passengerPhoneNumber);
@@ -158,6 +159,19 @@ namespace FlightManagementSystem
             }
             passengerPhoneNumber = PhoneNumberFormatCheck(passengerPhoneNumber);
             if (!validationFlag) { return; }
+
+            //Enter Passenger Passport Number
+            Console.Write("Enter the Passport Number: ");
+            ErrorCatch(ref passengerPassportNumber);
+            if (!validationFlag) { return; }
+            CheckIsUnique(passengerPassportNumber);
+            if (!validationFlag)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("This passport number is already registered");
+                Console.ResetColor();
+            }
+
         }
 
         static void Main(string[] args)
