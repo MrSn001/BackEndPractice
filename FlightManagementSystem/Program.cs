@@ -237,6 +237,16 @@ namespace FlightManagementSystem
         }
 
         //Add an Aircraft
+        public static int GenerateAircraftId()
+        {
+            if (context.Aircrafts.Count == 0)
+            {
+                int id2 = 1;
+                return id2;
+            }
+            int id = context.Aircrafts.Max(a => a.aircraftId);
+            return id;
+        }
         public static void AddAircraft()
         {
             //Aircraft model name
