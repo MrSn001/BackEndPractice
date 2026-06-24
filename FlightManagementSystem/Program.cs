@@ -234,6 +234,12 @@ namespace FlightManagementSystem
                 }
                 );
 
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Passenger Added Successfully!!");
+            Console.Write("Passenger ID: " + passengerId + " | Passenger Name: " + passengerName + " | Passenger Email: " + passengerEmail );
+            Console.WriteLine(" | Passenger Phone Number: " + passengerPhoneNumber + " | Passenger Passport Number: " + passengerPassportNumber + " | Passenger Nationality: " + passengerNationality);
+            Console.ResetColor();
+
         }
 
         //Add an Aircraft
