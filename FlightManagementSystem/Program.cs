@@ -222,6 +222,16 @@ namespace FlightManagementSystem
 
         }
 
+        //Add an Aircraft
+        public static void AddAircraft()
+        {
+            Console.WriteLine("Enter Aircraft Model Name: ");
+            ErrorCatch(ref aircraftModel);
+            if (!validationFlag) { return; }
+            aircraftModel = ReadName(aircraftModel);
+            
+        }
+
         static void Main(string[] args)
         {
             while (flag) 
