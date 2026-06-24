@@ -45,7 +45,68 @@ namespace FlightManagementSystem
             while (flag) 
             {
                 PrintMainMenu();
-              
+
+                try
+                {
+                    choice = int.Parse(Console.ReadLine());
+                }
+                catch (FormatException ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Error: " + ex.Message);
+                    Console.ResetColor();
+                    choice = -1;
+                }
+
+                switch (choice)
+                {
+                    //Register a Passenger
+                    case 1:
+                        break;
+                    //Add an Aircraft
+                    case 2:
+                        break;
+                    //Register a Pilot
+                    case 3:
+                        break;
+                    //View All Flights
+                    case 4:
+                        break;
+                    //Schedule a Flight
+                    case 5:
+                        break;
+                    //Book a Flight
+                    case 6:
+                        break;
+                    //Cancel a Booking
+                    case 7:
+                        break;
+                    //Depart a Flight
+                    case 8:
+                        break;
+                    //Cancel a Flight
+                    case 9:
+                        break;
+                    //Passenger Booking History
+                    case 10:
+                        break;
+                    //Flight Revenue & Load Factor Report
+                    case 11:
+                        break;
+                    //For Catching The Errors
+                    case -1:
+                        break;
+
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Invalid Option!!");
+                        Console.ResetColor();
+                        break;
+                }
+
+                Console.WriteLine("Press Any Key To Continue...");
+                Console.ReadKey();
+                Console.Clear();
 
             }
         }
