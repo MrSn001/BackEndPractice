@@ -153,7 +153,12 @@ namespace FlightManagementSystem
         }
         public static int GeneratePassengerId()
         {
-            int id = context.Passengers.Max(p =>p.passengerId);
+            if(context.Passengers.Count == 0)
+            {
+                int id2 = 0;
+                return id2;
+            }
+        int id = context.Passengers.Max(p =>p.passengerId) + 1;
             return id;
         }
         public static void PassengerRegister()
