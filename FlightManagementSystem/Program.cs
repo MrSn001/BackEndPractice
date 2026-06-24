@@ -85,6 +85,23 @@ namespace FlightManagementSystem
                 return;
             }
         }
+
+        public static void ErrorCatch(ref int i)
+        {
+            try
+            {
+                i = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error: " + ex.Message);
+                Console.ResetColor();
+                validationFlag = false;
+                return;
+            }
+        }
+
         public static void CheckIsUnique(string value)
         {
             if (context.Passengers.Any(p => p.passengerEmail == value))
@@ -180,7 +197,7 @@ namespace FlightManagementSystem
             }
 
             //Enter Passenger Nationality
-            Console.WriteLine("Enter the Passenger Nationality");
+            Console.Write("Enter the Passenger Nationality: ");
             ErrorCatch(ref passengerNationality);
             if (!validationFlag) { return; }
             passengerNationality = ReadName(passengerNationality);
@@ -207,17 +224,7 @@ namespace FlightManagementSystem
             {
                 PrintMainMenu();
 
-                try
-                {
-                    choice = int.Parse(Console.ReadLine());
-                }
-                catch (FormatException ex)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Error: " + ex.Message);
-                    Console.ResetColor();
-                    choice = -1;
-                }
+                ErrorCatch(ref choice);
 
                 switch (choice)
                 {
