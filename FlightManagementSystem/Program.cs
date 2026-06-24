@@ -121,6 +121,11 @@ namespace FlightManagementSystem
             }
             return phoneNumber;
         }
+        public static int GeneratePassengerId()
+        {
+            int id = context.Passengers.Count + 1;
+            return id;
+        }
         public static void PassengerRegister()
         {
             validationFlag = true;
@@ -180,9 +185,12 @@ namespace FlightManagementSystem
             if (!validationFlag) { return; }
             passengerNationality = ReadName(passengerNationality);
 
+            passengerId = GeneratePassengerId();
+
             context.Passengers.Add(
                 new Passenger
                 {
+                    passengerId = passengerId,
                     passengerName = passengerName,
                     passengerEmail = passengerEmail,
                     passengerPhone = passengerPhoneNumber,
