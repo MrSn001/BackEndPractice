@@ -114,13 +114,14 @@ namespace FlightManagementSystem
                 return;
             }
         }
-        public static void CheckIfZero(int num)
+        public static int CheckIfZero(int num)
         {
             if(num == 0) 
             {
                 validationFlag = false;
-                return;
+                return 0;
             }
+            return num;
         }
 
 
@@ -240,10 +241,10 @@ namespace FlightManagementSystem
             aircraftModel = ReadName(aircraftModel);
 
             //Aircraft total Seats
-            
-
-            
         }
+            
+            
+        
 
         static void Main(string[] args)
         {
