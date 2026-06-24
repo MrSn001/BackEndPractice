@@ -5,8 +5,14 @@ namespace FlightManagementSystem
 {
     internal class Program
     {
+        //system variables
         public static bool flag = true;
         public static int choice;
+        public static bool validationFlag = true;
+
+
+        //Passenger variables
+        public static string passengerName;
 
         public static FlightManagementSystemContext context = new FlightManagementSystemContext
         {
@@ -38,7 +44,36 @@ namespace FlightManagementSystem
                 Choose a Number: 
                 """);
         }
+        public static string ReadName(string name)
+        {
+            if(name == null)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("The Field Can't be Empty!!");
+                validationFlag = false;
+                Console.ResetColor();
+                return null;
+            }
+            return name;
+        }
 
+        public static void PassengerRegister()
+        {
+            Console.Write("Enter the Passenger Name: ");
+            try
+            {
+                passengerName = Console.ReadLine();
+            }
+            catch (FormatException ex)
+            {
+                Console.ForegroundColor= ConsoleColor.Red;
+                Console.WriteLine("Error: " + ex.Message);
+                Console.ResetColor();
+                return;
+            }
+
+            ReadName(passengerName);
+        }
 
         static void Main(string[] args)
         {
