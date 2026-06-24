@@ -255,6 +255,7 @@ namespace FlightManagementSystem
         }
         public static void AddAircraft()
         {
+            validationFlag = true;
             //Aircraft model name
             Console.WriteLine("Enter Aircraft Model Name: ");
             ErrorCatch(ref aircraftModel);
