@@ -280,7 +280,10 @@ namespace FlightManagementSystem
                     isOperational = true
                 });
 
-           
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Aircraft Added Successfully!!");
+            Console.WriteLine("Aircraft ID: " + aircraftId + " | Aircraft Name: " + aircraftModel + " | Aircraft Number of seats: " + totalSeats);
+            Console.ResetColor();
 
         }
             
