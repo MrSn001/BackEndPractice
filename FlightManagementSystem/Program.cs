@@ -13,12 +13,13 @@ namespace FlightManagementSystem
         public static int choice;
         public static bool validationFlag = true;
         public static EmailAddressAttribute attribute = new EmailAddressAttribute();
-        
-       
+
+
 
 
 
         //Passenger variables
+        public static int passengerId;
         public static string passengerName;
         public static string passengerEmail;
         public static string passengerPhoneNumber;
@@ -108,7 +109,6 @@ namespace FlightManagementSystem
             }
             return email;
         }
-        
         public static string PhoneNumberFormatCheck(string phoneNumber)
         {
             if (!Regex.IsMatch(phoneNumber, @"^[79]\d{7}$"))
@@ -179,6 +179,18 @@ namespace FlightManagementSystem
             ErrorCatch(ref passengerNationality);
             if (!validationFlag) { return; }
             passengerNationality = ReadName(passengerNationality);
+
+            context.Passengers.Add(
+                new Passenger
+                {
+                    passengerName = passengerName,
+                    passengerEmail = passengerEmail,
+                    passengerPhone = passengerPhoneNumber,
+                    passportNumber = passengerPassportNumber,
+                    nationality = passengerNationality
+                }
+                );
+
         }
 
         static void Main(string[] args)
