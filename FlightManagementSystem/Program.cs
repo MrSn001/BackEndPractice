@@ -278,7 +278,10 @@ namespace FlightManagementSystem
                 PrintMainMenu();
 
                 ErrorCatch(ref choice);
-
+                if (!validationFlag)
+                {
+                    choice = -1;
+                }
                 switch (choice)
                 {
                     //Register a Passenger
