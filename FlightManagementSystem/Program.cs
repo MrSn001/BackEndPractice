@@ -1,5 +1,7 @@
 ﻿using FlightManagementSystem.Models;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography.X509Certificates;
+
 
 namespace FlightManagementSystem
 {
@@ -9,10 +11,12 @@ namespace FlightManagementSystem
         public static bool flag = true;
         public static int choice;
         public static bool validationFlag = true;
+        public static EmailAddressAttribute attribute = new EmailAddressAttribute();
 
 
         //Passenger variables
         public static string passengerName;
+        public static string passengerEmail;
 
         public static FlightManagementSystemContext context = new FlightManagementSystemContext
         {
@@ -23,6 +27,7 @@ namespace FlightManagementSystem
             Pilots = new List<Pilot>()
         };
 
+        //Setup Method
         public static void PrintMainMenu()
         {
             Console.WriteLine("""
@@ -41,8 +46,9 @@ namespace FlightManagementSystem
                 10. Passenger Booking History
                 11. Flight Revenue & Load Factor Report
                 =============================================================
-                Choose a Number: 
+                
                 """);
+            Console.Write("Choose a Number: ");
         }
         public static string ReadName(string name)
         {
@@ -56,23 +62,35 @@ namespace FlightManagementSystem
             }
             return name;
         }
-
-        public static void PassengerRegister()
+        public static void ErrorCatch(ref string s)
         {
-            Console.Write("Enter the Passenger Name: ");
             try
             {
-                passengerName = Console.ReadLine();
+                s = Console.ReadLine();
             }
             catch (FormatException ex)
             {
-                Console.ForegroundColor= ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Error: " + ex.Message);
                 Console.ResetColor();
+                validationFlag = false;
                 return;
             }
+        }
 
-            ReadName(passengerName);
+
+        
+        public static void PassengerRegister()
+        {
+            //Enter Passenger Name
+            Console.Write("Enter the Passenger Name: ");
+            ErrorCatch(ref passengerName);
+            if (!validationFlag) { return; }
+            passengerName = ReadName(passengerName);
+            if (!validationFlag) { return; }
+           
+           
+            
         }
 
         static void Main(string[] args)
@@ -97,6 +115,7 @@ namespace FlightManagementSystem
                 {
                     //Register a Passenger
                     case 1:
+                        PassengerRegister();
                         break;
                     //Add an Aircraft
                     case 2:
