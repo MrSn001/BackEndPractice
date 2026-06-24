@@ -114,6 +114,14 @@ namespace FlightManagementSystem
                 return;
             }
         }
+        public static void CheckIfZero(int num)
+        {
+            if(num == 0) 
+            {
+                validationFlag = false;
+                return;
+            }
+        }
 
 
 
@@ -225,10 +233,15 @@ namespace FlightManagementSystem
         //Add an Aircraft
         public static void AddAircraft()
         {
+            //Aircraft model name
             Console.WriteLine("Enter Aircraft Model Name: ");
             ErrorCatch(ref aircraftModel);
             if (!validationFlag) { return; }
             aircraftModel = ReadName(aircraftModel);
+
+            //Aircraft total Seats
+            
+
             
         }
 
