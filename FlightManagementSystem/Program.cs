@@ -26,6 +26,12 @@ namespace FlightManagementSystem
         public static string passengerPassportNumber;
         public static string passengerNationality;
 
+        //Aircraft Variables
+        public static int aircraftId;
+        public static string aircraftModel;
+        public static int totalSeats;
+        public static bool isOperational;
+
         public static FlightManagementSystemContext context = new FlightManagementSystemContext
         {
             Aircrafts = new List<Aircraft>(),
@@ -85,7 +91,6 @@ namespace FlightManagementSystem
                 return;
             }
         }
-
         public static void ErrorCatch(ref int i)
         {
             try
@@ -101,7 +106,6 @@ namespace FlightManagementSystem
                 return;
             }
         }
-
         public static void CheckIsUnique(string value)
         {
             if (context.Passengers.Any(p => p.passengerEmail == value))
@@ -140,7 +144,7 @@ namespace FlightManagementSystem
         }
         public static int GeneratePassengerId()
         {
-            int id = context.Passengers.Count + 1;
+            int id = context.Passengers.Max(p =>p.passengerId);
             return id;
         }
         public static void PassengerRegister()
