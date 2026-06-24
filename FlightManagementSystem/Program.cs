@@ -23,6 +23,7 @@ namespace FlightManagementSystem
         public static string passengerEmail;
         public static string passengerPhoneNumber;
         public static string passengerPassportNumber;
+        public static string passengerNationality;
 
         public static FlightManagementSystemContext context = new FlightManagementSystemContext
         {
@@ -83,7 +84,15 @@ namespace FlightManagementSystem
                 return;
             }
         }
-       
+        public static void CheckIsUnique(string value)
+        {
+            if (context.Passengers.Any(p => p.passengerEmail == value))
+            {
+                validationFlag = false;
+                return;
+            }
+        }
+
 
 
         //Register Passenger Method
@@ -99,14 +108,7 @@ namespace FlightManagementSystem
             }
             return email;
         }
-        public static void CheckIsUnique(string value)
-        {
-            if(context.Passengers.Any(p => p.passengerEmail == value))
-            {
-                validationFlag = false;
-                return;
-            }
-        }
+        
         public static string PhoneNumberFormatCheck(string phoneNumber)
         {
             if (!Regex.IsMatch(phoneNumber, @"^[79]\d{7}$"))
@@ -172,6 +174,11 @@ namespace FlightManagementSystem
                 Console.ResetColor();
             }
 
+            //Enter Passenger Nationality
+            Console.WriteLine("Enter the Passenger Nationality");
+            ErrorCatch(ref passengerNationality);
+            if (!validationFlag) { return; }
+            passengerNationality = ReadName(passengerNationality);
         }
 
         static void Main(string[] args)
