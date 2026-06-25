@@ -32,6 +32,14 @@ namespace FlightManagementSystem
         public static int totalSeats;
         public static bool isOperational;
 
+        //Pilot Variables
+        public static int pilotId;
+        public static string pilotName;
+        public static string pilotPhoneNumber;
+        public static string pilotlicenseNumber;
+        public static int flightHours;
+        public static bool isAvailable;
+
         public static FlightManagementSystemContext context = new FlightManagementSystemContext
         {
             Aircrafts = new List<Aircraft>(),
@@ -297,6 +305,7 @@ namespace FlightManagementSystem
             int id = context.Pilots.Max(pi => pi.pilotId);
             return id;
         }
+        
         public static void RegisterPilot()
         {
 
