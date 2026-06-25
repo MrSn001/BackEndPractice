@@ -37,7 +37,6 @@ namespace FlightManagementSystem
         public static string pilotName;
         public static string pilotPhoneNumber;
         public static string pilotlicenseNumber;
-        public static int flightHours;
         public static bool isAvailable;
 
         public static FlightManagementSystemContext context = new FlightManagementSystemContext
@@ -344,9 +343,20 @@ namespace FlightManagementSystem
                 Console.WriteLine("This license number is already Registered!!");
                 Console.ResetColor();
                 return;
-            }   
+            }
 
-
+            pilotId = GeneratePilotId();
+            context.Pilots.Add(
+                new Pilot
+                {
+                    pilotId = pilotId,
+                    pilotName = pilotName,
+                    pilotPhone = pilotPhoneNumber,
+                    flightHours = 0,
+                    licenseNumber = pilotlicenseNumber,
+                    isAvailable = true
+                }
+                );
 
         }
 
