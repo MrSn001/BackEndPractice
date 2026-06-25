@@ -37,6 +37,7 @@ namespace FlightManagementSystem
         public static string pilotName;
         public static string pilotPhoneNumber;
         public static string pilotlicenseNumber;
+        public static int pilotFlightNumber;
         public static bool isAvailable;
 
         public static FlightManagementSystemContext context = new FlightManagementSystemContext
@@ -346,17 +347,24 @@ namespace FlightManagementSystem
             }
 
             pilotId = GeneratePilotId();
+            pilotFlightNumber = 0;
             context.Pilots.Add(
                 new Pilot
                 {
                     pilotId = pilotId,
                     pilotName = pilotName,
                     pilotPhone = pilotPhoneNumber,
-                    flightHours = 0,
+                    flightHours = pilotFlightNumber,
                     licenseNumber = pilotlicenseNumber,
                     isAvailable = true
                 }
                 );
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Pilot Added Successfully!!");
+            Console.Write("Pilot ID: " + pilotId + " | Name: " + pilotName);
+            Console.WriteLine(" | Phone Number: " + pilotPhoneNumber + " | License Number: " + pilotlicenseNumber + " | Flight Hours: " + pilotFlightNumber);
+            Console.ResetColor();
 
         }
 
