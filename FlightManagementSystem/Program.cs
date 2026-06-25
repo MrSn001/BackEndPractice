@@ -114,9 +114,9 @@ namespace FlightManagementSystem
                 return;
             }
         }
-        public static int CheckIfZero(int num)
+        public static int CheckIfZeroOrLess(int num)
         {
-            if(num == 0) 
+            if(num <= 0) 
             {
                 validationFlag = false;
                 return 0;
@@ -267,7 +267,7 @@ namespace FlightManagementSystem
             Console.Write("Enter Number of aircraft seat: ");
             ErrorCatch(ref totalSeats);
             if(!validationFlag) { return; }
-            totalSeats = CheckIfZero(totalSeats);
+            totalSeats = CheckIfZeroOrLess(totalSeats);
 
             aircraftId = GenerateAircraftId();
 
@@ -287,7 +287,8 @@ namespace FlightManagementSystem
 
         }
             
-            
+       //Register a pilot
+       
         
 
         static void Main(string[] args)
