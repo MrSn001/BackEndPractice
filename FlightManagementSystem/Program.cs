@@ -308,6 +308,12 @@ namespace FlightManagementSystem
         
         public static void RegisterPilot()
         {
+            validationFlag = true;
+            Console.Write("Enter the pilot name: ");
+            ErrorCatch(ref pilotName);
+            if (!validationFlag) { return; }
+            pilotName = ReadName(pilotName);
+            if (!validationFlag) { return; }
 
         }
         
@@ -335,6 +341,7 @@ namespace FlightManagementSystem
                         break;
                     //Register a Pilot
                     case 3:
+                        RegisterPilot();
                         break;
                     //View All Flights
                     case 4:
