@@ -332,10 +332,24 @@ namespace FlightManagementSystem
             pilotPhoneNumber = PhoneNumberFormatCheck(pilotPhoneNumber);
             if (!validationFlag) { return; }
 
+            //Enter Pilot License Number
+            Console.Write("Enter the Pilot License Number: ");
+            ErrorCatch(ref pilotlicenseNumber);
+            if (!validationFlag) { return; }
+            pilotlicenseNumber = ReadName(pilotlicenseNumber);
+            CheckIsUnique(pilotlicenseNumber);
+            if (!validationFlag)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("This license number is already Registered!!");
+                Console.ResetColor();
+                return;
+            }   
+
 
 
         }
-        
+
 
         static void Main(string[] args)
         {
