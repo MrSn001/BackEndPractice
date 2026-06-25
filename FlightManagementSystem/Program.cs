@@ -72,9 +72,9 @@ namespace FlightManagementSystem
                 """);
             Console.Write("Choose a Number: ");
         }
-        public static string ReadName(string name)
+        public static string CheckIfNullOrEmpty(string value)
         {
-            if(string.IsNullOrEmpty(name))
+            if(string.IsNullOrEmpty(value))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("The Field Can't be Empty!!");
@@ -82,7 +82,7 @@ namespace FlightManagementSystem
                 Console.ResetColor();
                 return null;
             }
-            return name;
+            return value;
         }
         public static void ErrorCatch(ref string s)
         {
@@ -176,7 +176,7 @@ namespace FlightManagementSystem
             Console.Write("Enter the Passenger Name: ");
             ErrorCatch(ref passengerName);
             if (!validationFlag) { return; }
-            passengerName = ReadName(passengerName);
+            passengerName = CheckIfNullOrEmpty(passengerName);
             if (!validationFlag) { return; }
            
             //Enter Passenger Email
@@ -226,7 +226,7 @@ namespace FlightManagementSystem
             Console.Write("Enter the Passenger Nationality: ");
             ErrorCatch(ref passengerNationality);
             if (!validationFlag) { return; }
-            passengerNationality = ReadName(passengerNationality);
+            passengerNationality = CheckIfNullOrEmpty(passengerNationality);
 
             passengerId = GeneratePassengerId();
 
@@ -267,7 +267,7 @@ namespace FlightManagementSystem
             Console.Write("Enter Aircraft Model Name: ");
             ErrorCatch(ref aircraftModel);
             if (!validationFlag) { return; }
-            aircraftModel = ReadName(aircraftModel);
+            aircraftModel = CheckIfNullOrEmpty(aircraftModel);
             if (!validationFlag) { return; }
 
             //Aircraft total Seats
@@ -314,7 +314,7 @@ namespace FlightManagementSystem
             Console.Write("Enter the pilot name: ");
             ErrorCatch(ref pilotName);
             if (!validationFlag) { return; }
-            pilotName = ReadName(pilotName);
+            pilotName = CheckIfNullOrEmpty(pilotName);
             if (!validationFlag) { return; }
 
             //Enter Pilot Phone Number
@@ -336,7 +336,7 @@ namespace FlightManagementSystem
             Console.Write("Enter the Pilot License Number: ");
             ErrorCatch(ref pilotlicenseNumber);
             if (!validationFlag) { return; }
-            pilotlicenseNumber = ReadName(pilotlicenseNumber);
+            pilotlicenseNumber = CheckIfNullOrEmpty(pilotlicenseNumber);
             CheckIsUnique(pilotlicenseNumber);
             if (!validationFlag)
             {
