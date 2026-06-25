@@ -309,11 +309,30 @@ namespace FlightManagementSystem
         public static void RegisterPilot()
         {
             validationFlag = true;
+
+            //Enter Pilot Name
             Console.Write("Enter the pilot name: ");
             ErrorCatch(ref pilotName);
             if (!validationFlag) { return; }
             pilotName = ReadName(pilotName);
             if (!validationFlag) { return; }
+
+            //Enter Pilot Phone Number
+            Console.Write("Enter the Pilot Phone Number: ");
+            ErrorCatch(ref pilotPhoneNumber);
+            if (!validationFlag) { return; }
+            CheckIsUnique(pilotPhoneNumber);
+            if (!validationFlag)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("This phone number is already Registered!!");
+                Console.ResetColor();
+                return;
+            }
+            pilotPhoneNumber = PhoneNumberFormatCheck(pilotPhoneNumber);
+            if (!validationFlag) { return; }
+
+
 
         }
         
