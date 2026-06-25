@@ -241,7 +241,6 @@ namespace FlightManagementSystem
             Console.ResetColor();
 
         }
-
         //Add an Aircraft
         public static int GenerateAircraftId()
         {
@@ -286,9 +285,22 @@ namespace FlightManagementSystem
             Console.ResetColor();
 
         }
-            
-       //Register a pilot
-       
+
+        //Register a pilot
+        public static int GeneratePilotId()
+        {
+            if (context.Pilots.Count == 0)
+            {
+                int id2 = 1;
+                return id2;
+            }
+            int id = context.Pilots.Max(pi => pi.pilotId);
+            return id;
+        }
+        public static void RegisterPilot()
+        {
+
+        }
         
 
         static void Main(string[] args)
