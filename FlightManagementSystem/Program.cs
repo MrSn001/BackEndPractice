@@ -412,8 +412,10 @@ namespace FlightManagementSystem
             Console.WriteLine("        The Operational and Available AirCrafts");
             Console.WriteLine("=========================================================");
 
+            List<Aircraft> operational = context.Aircrafts.Where(a => a.isOperational == true).ToList();
+
             count = 1;
-            foreach(Aircraft aircraft in context.Aircrafts)
+            foreach(Aircraft aircraft in operational)
             {
                 Console.WriteLine("Number: " + count + "  Aircraft ID: " + aircraft.aircraftId + " | Aircraft Name: " + aircraft.model + " | Aircraft Number of seats: " + aircraft.totalSeats);
                 count++;
