@@ -12,6 +12,7 @@ namespace FlightManagementSystem
         public static bool flag = true;
         public static int choice;
         public static bool validationFlag = true;
+        public static int count;
         public static EmailAddressAttribute attribute = new EmailAddressAttribute();
 
 
@@ -257,7 +258,7 @@ namespace FlightManagementSystem
                 int id2 = 1;
                 return id2;
             }
-            int id = context.Aircrafts.Max(a => a.aircraftId);
+            int id = context.Aircrafts.Max(a => a.aircraftId) + 1;
             return id;
         }
         public static void AddAircraft()
@@ -395,11 +396,42 @@ namespace FlightManagementSystem
             }
         }
 
+        //Schedule a Flight
+        public static void PrintAvailableAircraftForScheduling()
+        {
+            validationFlag = true;
+            if(context.Aircrafts.Count == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("There is no Aircraft Added.");
+                Console.ResetColor();
+                validationFlag = false;
+                return;
+            }
+            Console.WriteLine("=========================================================");
+            Console.WriteLine("        The Operational and Available AirCrafts");
+            Console.WriteLine("=========================================================");
+
+            count = 1;
+            foreach(Aircraft aircraft in context.Aircrafts)
+            {
+                Console.WriteLine("Number: " + count + "  Aircraft ID: " + aircraft.aircraftId + " | Aircraft Name: " + aircraft.model + " | Aircraft Number of seats: " + aircraft.totalSeats);
+                count++;
+            }
+
+        }
+
+        public static void ScheduleFlight()
+        {
+            PrintAvailableAircraftForScheduling();
+        }
+
 
         static void Main(string[] args)
         {
             while (flag) 
             {
+                validationFlag = true;
                 PrintMainMenu();
 
                 ErrorCatch(ref choice);
