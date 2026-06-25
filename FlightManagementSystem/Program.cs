@@ -304,8 +304,7 @@ namespace FlightManagementSystem
             }
             int id = context.Pilots.Max(pi => pi.pilotId);
             return id;
-        }
-        
+        }       
         public static void RegisterPilot()
         {
             validationFlag = true;
@@ -368,6 +367,34 @@ namespace FlightManagementSystem
 
         }
 
+        //View All Flights
+        public static void ViewAllFlights()
+        {
+            if(context.Flights.Count == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("There is no Schedule Flight!! ");
+                Console.ResetColor();
+                return;
+            }
+            const int codeW = -13;
+            const int origW = -10;
+            const int destW = -13;
+            const int dateW = -16;
+            const int timeW = -16;
+            const int seatW = -17;
+            const int pricW = -14;
+            const int statW = -8;
+
+            Console.WriteLine($"{"Flight Code",codeW} | {"Origin",origW} | {"Destination",destW} | {"Departure Date",dateW} | {"Departure Time",timeW} | {"Available Seats",seatW} | {"Ticket Price",pricW} | {"Status",statW}");
+            Console.WriteLine(new string('-', 125));
+
+            foreach (Flight flight in context.Flights)
+            {
+                Console.WriteLine($"{flight.flightCode,codeW} | {flight.origin,origW} | {flight.destination,destW} | {flight.departureDate,dateW} | {flight.departureTime,timeW} | {flight.availableSeats,seatW} | {flight.ticketPrice,pricW} | {flight.status,statW}");
+            }
+        }
+
 
         static void Main(string[] args)
         {
@@ -396,6 +423,7 @@ namespace FlightManagementSystem
                         break;
                     //View All Flights
                     case 4:
+                        ViewAllFlights();
                         break;
                     //Schedule a Flight
                     case 5:
