@@ -422,6 +422,16 @@ namespace FlightManagementSystem
             }
 
         }
+        public static void CheckIfAircraftIsAvailable(int num)
+        {
+            if (context.Flights.Any(a => a.aircraftId != num))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("There is no Aircraft ID with the number " + num);
+                Console.ResetColor();
+                validationFlag = false;
+            }
+        }
 
         public static void ScheduleFlight()
         {
