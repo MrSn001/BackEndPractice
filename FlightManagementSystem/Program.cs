@@ -436,6 +436,13 @@ namespace FlightManagementSystem
         public static void ScheduleFlight()
         {
             PrintAvailableAircraftForScheduling();
+            Console.Write("Choose Aircraft ID: ");
+            ErrorCatch(ref choice);
+            if (!validationFlag) { return; }
+            CheckIfAircraftIsAvailable(choice);
+            if (!validationFlag) { return; }
+
+
         }
 
 
