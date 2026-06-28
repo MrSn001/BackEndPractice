@@ -433,6 +433,31 @@ namespace FlightManagementSystem
             }
         }
 
+        public static void PrintAvailablePilots(int num)
+        {
+            validationFlag = true;
+            if (context.Pilots.Count == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("There is no Pilot Registred.");
+                Console.ResetColor();
+                validationFlag = false;
+                return;
+            }
+            Console.WriteLine("=========================================================");
+            Console.WriteLine("                  The Available Pilots");
+            Console.WriteLine("=========================================================");
+
+            List<Pilot> available = context.Pilots.Where(p=> p.isAvailable == true).ToList();
+
+            count = 1;
+            foreach (Pilot pilot in available)
+            {
+                Console.WriteLine("Number: " + count + "  Pilot ID: " + pilot.pilotId + " | Pilot Name: " + pilot.pilotName );
+                count++;
+            }
+        }
+
         public static void ScheduleFlight()
         {
             PrintAvailableAircraftForScheduling();
