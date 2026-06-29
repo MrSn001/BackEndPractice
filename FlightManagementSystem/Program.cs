@@ -41,6 +41,18 @@ namespace FlightManagementSystem
         public static int pilotFlightNumber;
         public static bool isAvailable;
 
+        //Flight Variables
+        public static int flightId;
+        public string flightCode;
+        public string flightOrigin;
+        public string flightDestination;
+        public string flightDepartureDate;
+        public string flightDepartureTime;
+        public string flightDuration;
+        public decimal flightTicketPrice;
+        public int flightAvailableSeats;
+        public string flightStatus;
+
         public static FlightManagementSystemContext context = new FlightManagementSystemContext
         {
             Aircrafts = new List<Aircraft>(),
