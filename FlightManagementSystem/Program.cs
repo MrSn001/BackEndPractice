@@ -516,7 +516,16 @@ namespace FlightManagementSystem
                 validationFlag = false;
             }
         }
-
+        public static void GenerateFlightCode()
+        {
+            if(context.Flights.Count == 0) 
+            {
+                nextNumber = 001;
+                flightCode = "OA" + nextNumber;
+            }
+            nextNumber = context.Flights.Max(f => int.Parse(f.flightCode.Substring(2, 3))) + 1;
+            flightCode = "OA" + nextNumber;
+        }
 
         public static void ScheduleFlight()
         {
