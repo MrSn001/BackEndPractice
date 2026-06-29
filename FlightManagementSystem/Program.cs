@@ -468,6 +468,7 @@ namespace FlightManagementSystem
                 Console.ResetColor();
                 validationFlag = false;
             }
+            pilotId = num;
         }
 
         public static void ScheduleFlight()
