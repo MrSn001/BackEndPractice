@@ -517,6 +517,13 @@ namespace FlightManagementSystem
             CheckAircraftClashDate(flightDepartureDate);
             if (!validationFlag) { return; }
 
+            Console.Write("Enter the Departure Time: ");
+            ErrorCatch(ref flightDepartureTime);
+            if (!validationFlag) { return; }
+            flightDepartureTime = CheckIfNullOrEmpty(flightDepartureTime);
+            if (!validationFlag) { return; }
+
+
             Console.Write("Enter the Origin: ");
             ErrorCatch(ref flightOrigin);
             if (!validationFlag) { return; }
