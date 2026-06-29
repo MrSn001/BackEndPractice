@@ -43,15 +43,15 @@ namespace FlightManagementSystem
 
         //Flight Variables
         public static int flightId;
-        public string flightCode;
-        public string flightOrigin;
-        public string flightDestination;
-        public string flightDepartureDate;
-        public string flightDepartureTime;
-        public string flightDuration;
-        public decimal flightTicketPrice;
-        public int flightAvailableSeats;
-        public string flightStatus;
+        public static string flightCode;
+        public static string flightOrigin;
+        public static string flightDestination;
+        public static string flightDepartureDate;
+        public static string flightDepartureTime;
+        public static string flightDuration;
+        public static decimal flightTicketPrice;
+        public static int flightAvailableSeats;
+        public static string flightStatus;
 
         public static FlightManagementSystemContext context = new FlightManagementSystemContext
         {
