@@ -160,6 +160,16 @@ namespace FlightManagementSystem
             return num;
         }
 
+        public static decimal CheckIfZeroOrLess(decimal num)
+        {
+            if (num <= 0)
+            {
+                validationFlag = false;
+                return 0;
+            }
+            return num;
+        }
+
 
 
         //Register Passenger Method
