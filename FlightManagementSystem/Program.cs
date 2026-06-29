@@ -458,6 +458,17 @@ namespace FlightManagementSystem
             }
         }
 
+        public static void CheckIfPilotIsAvailable(int num)
+        {
+            if (context.Pilots.Any(p => p.pilotId != num))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("There is no Pilot ID with the number " + num);
+                Console.ResetColor();
+                validationFlag = false;
+            }
+        }
+
         public static void ScheduleFlight()
         {
             PrintAvailableAircraftForScheduling();
@@ -468,6 +479,11 @@ namespace FlightManagementSystem
             if (!validationFlag) { return; }
 
             PrintAvailablePilots();
+            Console.Write("Choose Pilot ID: ");
+            ErrorCatch(ref choice);
+            if (!validationFlag) { return; }
+            CheckIfPilotIsAvailable(choice);
+            if (!validationFlag) { return; }
 
 
         }
