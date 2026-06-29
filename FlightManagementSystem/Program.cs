@@ -523,6 +523,11 @@ namespace FlightManagementSystem
             flightOrigin = CheckIfNullOrEmpty(flightOrigin);
             if (!validationFlag) { return; }
 
+            Console.Write("Enter the Destination: ");
+            ErrorCatch(ref flightDestination);
+            if (!validationFlag) { return; }
+            flightDestination = CheckIfNullOrEmpty(flightDestination);
+            if (!validationFlag) { return; }
 
         }
 
