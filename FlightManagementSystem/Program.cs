@@ -13,6 +13,7 @@ namespace FlightManagementSystem
         public static int choice;
         public static bool validationFlag = true;
         public static int count;
+        public static int nextNumber;
         public static EmailAddressAttribute attribute = new EmailAddressAttribute();
 
 
@@ -42,6 +43,7 @@ namespace FlightManagementSystem
         public static bool isAvailable;
 
         //Flight Variables
+        public static Flight flightObj;
         public static int flightId;
         public static string flightCode;
         public static string flightOrigin;
@@ -526,7 +528,6 @@ namespace FlightManagementSystem
             nextNumber = context.Flights.Max(f => int.Parse(f.flightCode.Substring(2, 3))) + 1;
             flightCode = "OA" + nextNumber;
         }
-
         public static int GenerateFlightId()
         {
             if (context.Flights.Count == 0)
@@ -591,7 +592,28 @@ namespace FlightManagementSystem
             flightTicketPrice = CheckIfZeroOrLess(flightTicketPrice);
             if (!validationFlag) { return; }
 
-            
+            GenerateFlightCode();
+            flightId = GenerateFlightId();
+            flightAvailableSeats = AssignAvailableSeats(aircraftId);
+            flightStatus = "Scheduled";
+
+            context.Flights.Add(
+                new Flight
+                {
+                    flightId = flightId,
+                    flightCode = flightCode,
+                    aircraftId = aircraftId,
+                    pilotId = pilotId,
+                    origin = flightOrigin,
+                    destination = flightDestination,
+                    departureDate = flightDepartureDate,
+                    departureTime = flightDepartureTime,
+                    ticketPrice = flightTicketPrice,
+                    availableSeats = flightAvailableSeats,
+                    status = flightStatus
+                    
+                }
+                );
         }
 
 
