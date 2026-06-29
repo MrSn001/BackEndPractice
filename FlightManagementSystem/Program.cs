@@ -561,6 +561,12 @@ namespace FlightManagementSystem
             flightDestination = CheckIfNullOrEmpty(flightDestination);
             if (!validationFlag) { return; }
 
+            Console.Write("Enter the Ticket Price: ");
+            ErrorCatch(ref flightTicketPrice);
+            if (!validationFlag) { return; }
+            flightTicketPrice = CheckIfZeroOrLess(flightTicketPrice);
+            if (!validationFlag) { return; }
+
             
         }
 
