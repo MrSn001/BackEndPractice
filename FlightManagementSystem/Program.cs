@@ -433,7 +433,7 @@ namespace FlightManagementSystem
             }
         }
 
-        public static void PrintAvailablePilots(int num)
+        public static void PrintAvailablePilots()
         {
             validationFlag = true;
             if (context.Pilots.Count == 0)
@@ -466,6 +466,8 @@ namespace FlightManagementSystem
             if (!validationFlag) { return; }
             CheckIfAircraftIsAvailable(choice);
             if (!validationFlag) { return; }
+
+            PrintAvailablePilots();
 
 
         }
