@@ -431,6 +431,7 @@ namespace FlightManagementSystem
                 Console.ResetColor();
                 validationFlag = false;
             }
+            aircraftId = num;
         }
 
         public static void PrintAvailablePilots()
