@@ -127,6 +127,21 @@ namespace FlightManagementSystem
                 return;
             }
         }
+        public static void ErrorCatch(ref decimal i)
+        {
+            try
+            {
+                i = decimal.Parse(Console.ReadLine());
+            }
+            catch (FormatException ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error: " + ex.Message);
+                Console.ResetColor();
+                validationFlag = false;
+                return;
+            }
+        }
         public static void CheckIsUnique(string value)
         {
             if (context.Passengers.Any(p => p.passengerEmail == value))
@@ -536,6 +551,7 @@ namespace FlightManagementSystem
             flightDestination = CheckIfNullOrEmpty(flightDestination);
             if (!validationFlag) { return; }
 
+            
         }
 
 
