@@ -262,6 +262,7 @@ namespace FlightManagementSystem
             Console.ResetColor();
 
         }
+
         //Add an Aircraft
         public static int GenerateAircraftId()
         {
@@ -445,7 +446,6 @@ namespace FlightManagementSystem
             }
             aircraftId = num;
         }
-
         public static void PrintAvailablePilots()
         {
             validationFlag = true;
@@ -470,7 +470,6 @@ namespace FlightManagementSystem
                 count++;
             }
         }
-
         public static void CheckIfPilotIsAvailable(int num)
         {
             if (context.Pilots.Any(p => p.pilotId != num))
@@ -493,6 +492,7 @@ namespace FlightManagementSystem
             }
         }
 
+
         public static void ScheduleFlight()
         {
             PrintAvailableAircraftForScheduling();
@@ -513,7 +513,14 @@ namespace FlightManagementSystem
             ErrorCatch(ref flightDepartureDate);
             if (!validationFlag) { return; }
             flightDepartureDate = CheckIfNullOrEmpty(flightDepartureDate);
+            if (!validationFlag) { return; }
             CheckAircraftClashDate(flightDepartureDate);
+            if (!validationFlag) { return; }
+
+            Console.Write("Enter the Origin: ");
+            ErrorCatch(ref flightOrigin);
+            if (!validationFlag) { return; }
+            flightOrigin = CheckIfNullOrEmpty(flightOrigin);
             if (!validationFlag) { return; }
 
 
