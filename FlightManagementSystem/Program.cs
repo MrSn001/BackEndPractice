@@ -527,6 +527,17 @@ namespace FlightManagementSystem
             flightCode = "OA" + nextNumber;
         }
 
+        public static int GenerateFlightId()
+        {
+            if (context.Flights.Count == 0)
+            {
+                nextNumber = 1;
+                return nextNumber;
+            }
+            nextNumber = context.Pilots.Max(pi => pi.pilotId);
+            return nextNumber;
+        }
+
         public static void ScheduleFlight()
         {
             PrintAvailableAircraftForScheduling();
