@@ -509,6 +509,13 @@ namespace FlightManagementSystem
             CheckIfPilotIsAvailable(choice);
             if (!validationFlag) { return; }
 
+            Console.Write("Enter Departure Date: ");
+            ErrorCatch(ref flightDepartureDate);
+            if (!validationFlag) { return; }
+            flightDepartureDate = CheckIfNullOrEmpty(flightDepartureDate);
+            CheckAircraftClashDate(flightDepartureDate);
+            if (!validationFlag) { return; }
+
 
         }
 
