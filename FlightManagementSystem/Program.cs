@@ -35,6 +35,7 @@ namespace FlightManagementSystem
         public static bool isOperational;
 
         //Pilot Variables
+        public static Pilot pilotObj;
         public static int pilotId;
         public static string pilotName;
         public static string pilotPhoneNumber;
@@ -614,6 +615,13 @@ namespace FlightManagementSystem
                     
                 }
                 );
+
+            pilotObj = context.Pilots.FirstOrDefault(pilot => pilot.pilotId == pilotId);
+            pilotObj.isAvailable = false;
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Flight ID: {flightId} with the flight code: {flightCode} Was added Successfully!!");
+            Console.ResetColor();
         }
 
 
@@ -649,6 +657,7 @@ namespace FlightManagementSystem
                         break;
                     //Schedule a Flight
                     case 5:
+                        ScheduleFlight();
                         break;
                     //Book a Flight
                     case 6:
