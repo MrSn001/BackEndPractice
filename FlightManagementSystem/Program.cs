@@ -537,7 +537,11 @@ namespace FlightManagementSystem
             nextNumber = context.Pilots.Max(pi => pi.pilotId);
             return nextNumber;
         }
-
+        public static int AssignAvailableSeats(int id)
+        {
+            flightObj = context.Flights.FirstOrDefault(f => f.aircraftId == id);
+            return flightObj.availableSeats;
+        }
         public static void ScheduleFlight()
         {
             PrintAvailableAircraftForScheduling();
