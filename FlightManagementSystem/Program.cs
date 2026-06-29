@@ -482,6 +482,16 @@ namespace FlightManagementSystem
             }
             pilotId = num;
         }
+        public static void CheckAircraftClashDate(string date)
+        {
+            if (context.Flights.Any(f => f.departureDate == date && f.aircraftId == aircraftId))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"The aircraft is already scheduled for a flight on this {date} date.");
+                Console.ResetColor();
+                validationFlag = false;
+            }
+        }
 
         public static void ScheduleFlight()
         {
