@@ -32,5 +32,12 @@ namespace UniversitySystem.Models
         [MaxLength(20)]
         [RegularExpression(@"^(Fall|Spring|Summer|Winter)\s\d{4}$")]
         public string semesterOffered { get; set; } // System Generated
+
+        [ForeignKey("Department")]
+        [NotNull]
+        public int departmentId { get; set; } // Foreign key property
+        public Department Department { get; set; } // Navigation property
+
+
     }
 }
