@@ -27,5 +27,9 @@ namespace UniversitySystem.Models
         [Range(0.01, double.MaxValue)]
         public decimal budget { get; set; } // User Input
 
+        [AllowNull]
+        [ForeignKey("Instructor")]
+        public int headInstructorId { get; set; } // Foreign key property
+        public Instructor instructor { get; set; } // Navigation property
     }
 }
