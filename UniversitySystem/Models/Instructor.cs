@@ -27,7 +27,7 @@ namespace UniversitySystem.Models
         [MaxLength(150)]
         public string email { get; set; } // User Input
 
-        [MaybeNull]
+        [AllowNull]
         [MaxLength(20)]
         public string officeNumber { get; set; } // User Input
 
