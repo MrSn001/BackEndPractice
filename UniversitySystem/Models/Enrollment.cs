@@ -34,5 +34,8 @@ namespace UniversitySystem.Models
         [MaxLength(20)]
         [DefaultValue("In Progress")]
         public string status { get; set; } // Default Value/ Calculated
+
+        public virtual Student Student { get; set; } // Navigation Property 
+        public virtual Course Course { get; set; }// Navigation Property
     }
 }
