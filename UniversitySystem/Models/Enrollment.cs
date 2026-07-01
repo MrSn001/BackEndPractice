@@ -18,7 +18,7 @@ namespace UniversitySystem.Models
         [Required]
         public DateTime enrollmentDate; //Calculated
 
-        [MaybeNull]
+        [AllowNull]
         [MaxLength(2)]
         public string finalGrade; // Default Value/ Calculated
 
