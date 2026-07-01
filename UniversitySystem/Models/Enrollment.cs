@@ -15,6 +15,14 @@ namespace UniversitySystem.Models
         [NotNull]
         public int enrollmentId; // System Generated 
 
+        [ForeignKey("Student")]
+        [NotNull]
+        public int studentId {  get; set; } // Foreign key property
+
+        [ForeignKey("Course")]
+        [NotNull]
+        public int courseId { get; set; } // Foreign key property
+
         [Required]
         public DateTime enrollmentDate; //Calculated
 
