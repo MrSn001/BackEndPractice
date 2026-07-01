@@ -31,5 +31,8 @@ namespace UniversitySystem.Models
         [ForeignKey("Instructor")]
         public int headInstructorId { get; set; } // Foreign key property
         public Instructor instructor { get; set; } // Navigation property
+
+        public List<Course> courses { get; set; } // Navigation property
+
     }
 }
