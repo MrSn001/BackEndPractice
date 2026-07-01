@@ -20,7 +20,7 @@ namespace UniversitySystem.Models
         [MaxLength(100)]
         public string departmentName { get; set; } // User Input
 
-        [MaybeNull]
+        [AllowNull]
         [MaxLength(50)]
         public string building {  get; set; } // User Input
         [Required]
