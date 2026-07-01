@@ -44,6 +44,6 @@ namespace UniversitySystem.Models
         public int instructorId {  get; set; } // Foreign key property
         public Instructor instructor { get; set; } // Navigation property
 
-        public List<Enrollment> courseEnrollments { get; set; } // Navigation property
+        public virtual List<Enrollment> courseEnrollments { get; set; } // Navigation property
     }
 }
