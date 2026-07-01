@@ -14,18 +14,18 @@ namespace UniversitySystem.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [NotNull]
-        public int departmentId {  get; set; }
+        public int departmentId {  get; set; } // System Generated
 
         [Required]
         [MaxLength(100)]
-        public string departmentName { get; set; }
+        public string departmentName { get; set; } // User Input
 
         [MaybeNull]
         [MaxLength(50)]
-        public string building {  get; set; }
+        public string building {  get; set; } // User Input
         [Required]
         [Range(0.01, double.MaxValue)]
-        public decimal budget { get; set; }
+        public decimal budget { get; set; } // User Input
 
     }
 }
