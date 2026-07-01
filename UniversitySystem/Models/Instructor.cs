@@ -43,9 +43,11 @@ namespace UniversitySystem.Models
         [EnumDataType(typeof(AcademicTitle))]
         public AcademicTitle academicTitle { get; set; } // User Input
 
-        public Department dept { get; set; } // Navigation property
+        [InverseProperty("HeadInstructor")]
+        public virtual Department HeadedDepartment { get; set; } // Navigation property
 
-        public List<Course> courses { get; set; } // Navigation property
+        [InverseProperty("instructor")]
+        public virtual List<Course> courses { get; set; } // Navigation property
 
     }
 }
