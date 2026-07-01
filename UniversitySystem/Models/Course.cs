@@ -14,23 +14,23 @@ namespace UniversitySystem.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [NotNull]
-        public int courseId {  get; set; }
+        public int courseId {  get; set; } // System Generated 
 
         [Required]
         [MaxLength(10)]
-        public string courseCode { get; set; }
+        public string courseCode { get; set; } // User Input
 
         [Required]
         [MaxLength(150)]
-        public string courseTitle { get; set; }
+        public string courseTitle { get; set; } // User Input
 
         [Required]
         [Range(1, 6)]
-        public int creditHours { get; set; }
+        public int creditHours { get; set; } // User Input
 
         [Required]
         [MaxLength(20)]
         [RegularExpression(@"^(Fall|Spring|Summer|Winter)\s\d{4}$")]
-        public string semesterOffered { get; set; }
+        public string semesterOffered { get; set; } // System Generated
     }
 }
