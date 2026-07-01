@@ -43,5 +43,7 @@ namespace UniversitySystem.Models
         [EnumDataType(typeof(AcademicTitle))]
         public AcademicTitle academicTitle { get; set; } // User Input
 
+        public Department dept { get; set; } // Navigation property
+
     }
 }
