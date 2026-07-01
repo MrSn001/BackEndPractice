@@ -38,6 +38,10 @@ namespace UniversitySystem.Models
         public int departmentId { get; set; } // Foreign key property
         public Department Department { get; set; } // Navigation property
 
+        [ForeignKey("Instructor")]
+        [AllowNull]
+        public int instructorId {  get; set; } // Foreign key property
+        public Instructor instructor { get; set; } // Navigation property
 
     }
 }
