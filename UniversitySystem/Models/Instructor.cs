@@ -45,5 +45,7 @@ namespace UniversitySystem.Models
 
         public Department dept { get; set; } // Navigation property
 
+        public List<Course> courses { get; set; } // Navigation property
+
     }
 }
