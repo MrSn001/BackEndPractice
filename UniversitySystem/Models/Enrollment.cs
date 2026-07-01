@@ -6,9 +6,9 @@ namespace UniversitySystem.Models
 {
     public class Enrollment
     {
-        public int enrollmentId;
-        public DateTime enrollmentDate;
-        public string finalGrade;
-        public string status;
+        public int enrollmentId; // System Generated 
+        public DateTime enrollmentDate; //Calculated
+        public string finalGrade; // Default Value/ Calculated
+        public string status; // Default Value/ Calculated
     }
 }
