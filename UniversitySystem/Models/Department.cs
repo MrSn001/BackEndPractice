@@ -24,13 +24,14 @@ namespace UniversitySystem.Models
         [MaxLength(50)]
         public string building {  get; set; } // User Input
         [Required]
-        [Range(0.01, double.MaxValue)]
+        [Range(0.0, double.MaxValue)]
         public decimal budget { get; set; } // User Input
 
-        [AllowNull]
-        [ForeignKey("Instructor")]
-        public int headInstructorId { get; set; } // Foreign key property
-        public Instructor instructor { get; set; } // Navigation property
+        public int? headInstructorId { get; set; } // Foreign key property
+
+        [ForeignKey("headInstructorId")]
+        [InverseProperty("HeadedDepartment")]
+        public virtual Instructor HeadInstructor { get; set; } // Navigation property
 
         public List<Course> courses { get; set; } // Navigation property
 
