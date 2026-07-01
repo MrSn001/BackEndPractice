@@ -40,5 +40,7 @@ namespace UniversitySystem.Models
         [DefaultValue(0.0)]
         [Range(0.0,4.0)]
         public decimal gpa { get; set; } // DefaultValue / Calculated
+
+        public List<Enrollment> studentEnrollments { get; set; } // Navigation property
     }
 }
