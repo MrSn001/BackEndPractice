@@ -13,7 +13,7 @@ namespace UniversitySystem.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [NotNull]
-        public int enrollmentId; // System Generated 
+        public int enrollmentId { get; set; } // System Generated 
 
         [ForeignKey("Student")]
         [NotNull]
@@ -24,15 +24,15 @@ namespace UniversitySystem.Models
         public int courseId { get; set; } // Foreign key property
 
         [Required]
-        public DateTime enrollmentDate; //Calculated
+        public DateTime enrollmentDate { get; set; } //Calculated
 
         [AllowNull]
         [MaxLength(2)]
-        public string finalGrade; // Default Value/ Calculated
+        public string finalGrade { get; set; } // Default Value/ Calculated
 
         [Required]
         [MaxLength(20)]
         [DefaultValue("In Progress")]
-        public string status; // Default Value/ Calculated
+        public string status { get; set; } // Default Value/ Calculated
     }
 }
