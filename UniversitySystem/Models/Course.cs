@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Contracts;
 using System.Text;
 
 namespace UniversitySystem.Models
@@ -43,5 +44,6 @@ namespace UniversitySystem.Models
         public int instructorId {  get; set; } // Foreign key property
         public Instructor instructor { get; set; } // Navigation property
 
+        public List<Enrollment> courseEnrollments { get; set; } // Navigation property
     }
 }
