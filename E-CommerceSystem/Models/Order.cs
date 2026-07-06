@@ -18,7 +18,7 @@ namespace E_CommerceSystem.Models
         public DateTime orderDate { get; set; } = DateTime.Now; // System Calculated
 
         [Required]
-        [Range(0.0, decimal.MaxValue)]
+        [Range(0.0, double.MaxValue)]
         public decimal totalAmount { get; set; } // System Calculated
 
         [Required]

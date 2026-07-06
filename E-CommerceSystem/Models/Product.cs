@@ -31,7 +31,7 @@ namespace E_CommerceSystem.Models
         public string? imageUrl { get; set; } // User Input
 
         [Required]
-        public DateTime createdDate { get; set; }; // System Calculated
+        public DateTime createdDate { get; set; } // System Calculated
 
         public bool isAvailable { get; set; } = true; // Default Value
 
