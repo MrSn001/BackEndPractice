@@ -41,5 +41,7 @@ namespace E_CommerceSystem.Models
         [ForeignKey("Category")]
         public int categoryId { get; set; } // ForeignKey Property
         public virtual Category Category { get; set; } // Navigation Property
+
+        public virtual List<Review> Reviews { get; set; } // Navigation Property
     }
 }

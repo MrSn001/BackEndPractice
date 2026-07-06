@@ -21,5 +21,9 @@ namespace E_CommerceSystem.Models
 
         [Required]
         public DateTime reviewDate { get; set; } = DateTime.Now; // Default value
+
+        [ForeignKey("Product")]
+        public int productId { get; set; } // ForeignKey Property
+        public virtual Product Product { get; set; } // Navigation Property
     }
 }
