@@ -15,12 +15,12 @@ namespace E_CommerceSystem.Models
         public int quantity { get; set; } // User Input
 
         [ForeignKey("Order")]
-        public int orderId { get; set; } 
-        public virtual Order Order { get; set; }
+        public int orderId { get; set; } // ForeignKey Property
+        public virtual Order Order { get; set; } // Navigation Property
 
 
         [ForeignKey("Product")]
-        public int productId { get; set; }
-        public virtual Product Product { get; set; }
+        public int productId { get; set; } // ForeignKey Property
+        public virtual Product Product { get; set; } // Navigation Property
     }
 }
