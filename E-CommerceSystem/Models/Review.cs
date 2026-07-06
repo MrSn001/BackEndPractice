@@ -20,7 +20,7 @@ namespace E_CommerceSystem.Models
         public string? comment { get; set; } // User Input
 
         [Required]
-        public DateTime reviewDate { get; set; } = DateTime.Now; // Default value
+        public DateTime reviewDate { get; set; } // System Calculated
 
         [ForeignKey("Product")]
         public int productId { get; set; } // ForeignKey Property
