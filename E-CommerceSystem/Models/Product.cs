@@ -34,5 +34,6 @@ namespace E_CommerceSystem.Models
         public DateTime createdDate { get; set; } = DateTime.Now;
 
         public bool isAvailable { get; set; } = true;
+        public virtual List<OrderItem> OrderItems { get; set; } // Navigation Property
     }
 }
