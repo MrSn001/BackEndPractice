@@ -22,5 +22,8 @@ namespace E_CommerceSystem.Models
         public string? description { get; set; } // User Input
         [MaxLength(300)]
         public string? imageUrl { get; set; } // User Input
+
+
+        public virtual List<Product> products { get; set; } // Navigation Property
     }
 }

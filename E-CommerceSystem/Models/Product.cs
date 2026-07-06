@@ -34,6 +34,12 @@ namespace E_CommerceSystem.Models
         public DateTime createdDate { get; set; } = DateTime.Now;
 
         public bool isAvailable { get; set; } = true;
+
+
         public virtual List<OrderItem> OrderItems { get; set; } // Navigation Property
+
+        [ForeignKey("Category")]
+        public int categoryId { get; set; } // ForeignKey Property
+        public virtual Category Category { get; set; } // Navigation Property
     }
 }
