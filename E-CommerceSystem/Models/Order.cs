@@ -12,6 +12,8 @@ namespace E_CommerceSystem.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int orderId {  get; set; } // System Generated
 
+        [ForeignKey("User")]
+        public int userId { get; set; } // Foreign key property 
         [Required]
         public DateTime orderDate { get; set; } = DateTime.Now; // System Calculated
 
@@ -30,5 +32,8 @@ namespace E_CommerceSystem.Models
         [Required]
         [MaxLength(50)]
         public string paymentMethod { get; set; } // User Input
+
+        public User User { get; set; } // Navigation property
+
     }
 }
