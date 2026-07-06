@@ -10,30 +10,30 @@ namespace E_CommerceSystem.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int productId { get; set; }
+        public int productId { get; set; } // System Generated
 
         [Required]
         [MaxLength(150)]
-        public string productName { get; set; }
+        public string productName { get; set; } // User Input
 
         [MaxLength(1000)]
-        public string? description { get; set; }
+        public string? description { get; set; } // User Input
 
         [Required]
         [Range(0.01, double.MaxValue)]
-        public decimal price { get; set; }
+        public decimal price { get; set; } // User Input
 
         [Required]
         [Range(0, int.MaxValue)]
-        public int stockQuantity { get; set; } = 0;
+        public int stockQuantity { get; set; } = 0; // Default Value
 
         [MaxLength(300)]
-        public string? imageUrl { get; set; }
+        public string? imageUrl { get; set; } // User Input
 
         [Required]
-        public DateTime createdDate { get; set; };
+        public DateTime createdDate { get; set; }; // System Calculated
 
-        public bool isAvailable { get; set; } = true;
+        public bool isAvailable { get; set; } = true; // Default Value
 
 
         public virtual List<OrderItem> OrderItems { get; set; } // Navigation Property
