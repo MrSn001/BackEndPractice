@@ -25,5 +25,9 @@ namespace E_CommerceSystem.Models
         [ForeignKey("Product")]
         public int productId { get; set; } // ForeignKey Property
         public virtual Product Product { get; set; } // Navigation Property
+
+        [ForeignKey("User")]
+        public int userId { get; set; } // ForeignKey Property
+        public virtual User User { get; set; } // Navigation Property
     }
 }

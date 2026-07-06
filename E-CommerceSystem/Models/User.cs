@@ -41,7 +41,9 @@ namespace E_CommerceSystem.Models
         public DateTime registartionDate { get; set; } // System Calculated
         public bool isActive { get; set; } = true; // Default Value
 
-        public List<Order> Orders { get; set; } // Navigation property
+        public virtual List<Order> Orders { get; set; } // Navigation property
+
+        public virtual List<Review> Reviews { get; set; } // Navigation Property
 
     }
 }
