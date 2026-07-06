@@ -31,7 +31,7 @@ namespace E_CommerceSystem.Models
         public string? imageUrl { get; set; }
 
         [Required]
-        public DateTime createdDate { get; set; } = DateTime.Now;
+        public DateTime createdDate { get; set; };
 
         public bool isAvailable { get; set; } = true;
 
