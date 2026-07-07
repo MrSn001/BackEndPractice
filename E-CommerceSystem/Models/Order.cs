@@ -12,6 +12,7 @@ namespace E_CommerceSystem.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int orderId {  get; set; } // System Generated
 
+        [Required]
         [ForeignKey("User")]
         public int userId { get; set; } // Foreign key property 
         [Required]

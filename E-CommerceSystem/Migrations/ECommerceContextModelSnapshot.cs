@@ -48,7 +48,7 @@ namespace E_CommerceSystem.Migrations
                     b.HasIndex("categoryName")
                         .IsUnique();
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("E_CommerceSystem.Models.Order", b =>
@@ -87,7 +87,7 @@ namespace E_CommerceSystem.Migrations
 
                     b.HasIndex("userId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("E_CommerceSystem.Models.OrderItem", b =>
@@ -113,7 +113,7 @@ namespace E_CommerceSystem.Migrations
 
                     b.HasIndex("productId");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItems", (string)null);
                 });
 
             modelBuilder.Entity("E_CommerceSystem.Models.Product", b =>
@@ -156,7 +156,7 @@ namespace E_CommerceSystem.Migrations
 
                     b.HasIndex("categoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("E_CommerceSystem.Models.Review", b =>
@@ -189,7 +189,7 @@ namespace E_CommerceSystem.Migrations
 
                     b.HasIndex("userId");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Reviews", (string)null);
                 });
 
             modelBuilder.Entity("E_CommerceSystem.Models.User", b =>
@@ -242,7 +242,7 @@ namespace E_CommerceSystem.Migrations
                     b.HasIndex("username")
                         .IsUnique();
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("E_CommerceSystem.Models.Order", b =>
