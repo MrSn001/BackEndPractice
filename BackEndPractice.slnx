@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="UniversitySystem/UniversitySystem.csproj" Id="0415ab63-65a3-48a8-8298-46a41262d706" />
+  <Project Path="FlightManagementSystem/FlightManagementSystem.csproj" Id="83054a6c-3bac-426c-b6bf-bb6dfab2a179" />
 </Solution>
