@@ -12,13 +12,14 @@ namespace E_CommerceSystem.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int orderId {  get; set; } // System Generated
 
+        [Required]
         [ForeignKey("User")]
         public int userId { get; set; } // Foreign key property 
         [Required]
         public DateTime orderDate { get; set; } = DateTime.Now; // System Calculated
 
         [Required]
-        [Range(0.0, decimal.MaxValue)]
+        [Range(0.0, double.MaxValue)]
         public decimal totalAmount { get; set; } // System Calculated
 
         [Required]

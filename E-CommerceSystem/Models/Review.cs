@@ -22,10 +22,12 @@ namespace E_CommerceSystem.Models
         [Required]
         public DateTime reviewDate { get; set; } // System Calculated
 
+        [Required]
         [ForeignKey("Product")]
         public int productId { get; set; } // ForeignKey Property
         public virtual Product Product { get; set; } // Navigation Property
 
+        [Required]
         [ForeignKey("User")]
         public int userId { get; set; } // ForeignKey Property
         public virtual User User { get; set; } // Navigation Property

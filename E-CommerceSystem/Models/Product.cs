@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace E_CommerceSystem.Models
@@ -31,17 +32,18 @@ namespace E_CommerceSystem.Models
         public string? imageUrl { get; set; } // User Input
 
         [Required]
-        public DateTime createdDate { get; set; }; // System Calculated
+        public DateTime createdDate { get; set; } // System Calculated
 
         public bool isAvailable { get; set; } = true; // Default Value
 
 
         public virtual List<OrderItem> OrderItems { get; set; } // Navigation Property
 
+        [Required]
         [ForeignKey("Category")]
         public int categoryId { get; set; } // ForeignKey Property
         public virtual Category Category { get; set; } // Navigation Property
-
+        
         public virtual List<Review> Reviews { get; set; } // Navigation Property
     }
 }
