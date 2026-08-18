@@ -1,0 +1,29 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
+
+namespace E_CommerceSystem.Models
+{
+    [Index(nameof(categoryName), IsUnique = true)]
+    public class Category
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int categoryId { get; set; } // System Generated
+
+        [Required]
+        [MaxLength(100)]
+        public string categoryName { get; set; } // User Input
+
+        [MaxLength(500)]
+        public string? description { get; set; } // User Input
+        [MaxLength(300)]
+        public string? imageUrl { get; set; } // User Input
+
+
+        public virtual List<Product> products { get; set; } // Navigation Property
+    }
+}
